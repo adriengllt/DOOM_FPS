@@ -1,13 +1,11 @@
 package com.jad.fps;
 
 public class Map {
-
     private final int[][] maze;
     private final int width;
     private final int height;
 
     public Map(int width, int height) {
-
         this.width = width;
         this.height = height;
         this.maze = new int[height][width];
@@ -17,5 +15,4 @@ public class Map {
             }
         }
     }
-
 }
