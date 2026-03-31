@@ -24,7 +24,7 @@ public class Screen {
 
     public void verticalLine(int numColumn, final int rowStart, final int rowEnd, final char pixel) {
         for(int row = rowStart; row < rowEnd; row++){
-            this.pixels[this.height-row - 1][numColumn] = pixel;
+            this.pixels[this.height-row -1][numColumn] = pixel;
         }
 
     }
