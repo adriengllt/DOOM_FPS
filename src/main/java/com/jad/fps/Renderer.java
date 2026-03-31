@@ -33,18 +33,19 @@ public class Renderer {
         double angle = direction - RenderUtils.VIEWING_ANGLE /2;
         final double angleStep = RenderUtils.VIEWING_ANGLE / RenderUtils.SCREEN_WIDTH;
         for(int column = 0; column < RenderUtils.SCREEN_WIDTH; column++, angle += angleStep) {
-            heightsPerceived[column] = this.getHeightPerceived(origin,angle,map);
+            heightsPerceived[column] = this.getHeightPerceived(origin,angle,direction,map);
         }
         return heightsPerceived;
     }
 
-    private double getHeightPerceived(Point origin, double angle, Map map) {
+    private double getHeightPerceived(Point origin, double angle,final int direction, Map map) {
         final double radianAngle = RenderUtils.degreesToRadians(angle);
         final Point end = new Point((int) (origin.x - RenderUtils.VIEWING_DISTANCE * Math.cos(radianAngle)), (int) (origin.y-RenderUtils.VIEWING_DISTANCE * Math.sin(radianAngle)));
         final Point obstacle = this.getFromTo(map,origin,end);
         if (obstacle!=null) {
             final double realDistance = Math.sqrt(Math.pow(origin.x - obstacle.x, 2) + Math.pow(origin.y - obstacle.y, 2));
-            return RenderUtils.SCREEN_DISTANCE * RenderUtils.WALL_HEIGHT / realDistance;
+            final double eyeFishCorrection = Math.cos(RenderUtils.degreesToRadians(direction-angle));
+            return RenderUtils.SCREEN_DISTANCE * RenderUtils.WALL_HEIGHT / realDistance / eyeFishCorrection;
         }
         return 0.0;
     }
