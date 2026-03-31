@@ -2,11 +2,12 @@ package com.jad.fps;
 
 public enum RenderUtils {
     ;
+    public static final float FONT_SIZE = 2f;
     static final double VIEWING_ANGLE = 90.0;
-    static final int SCREEN_WIDTH = 125;
-    static final int SCREEN_HEIGHT = 32;
+    static final int SCREEN_WIDTH = 1028;
+    static final int SCREEN_HEIGHT = 300;
     static final int SCREEN_DISTANCE = RenderUtils.SCREEN_HEIGHT * 6/10;
-    static final int WALL_HEIGHT = 15;
+    static final int WALL_HEIGHT = 100;
     static final int VIEWING_DISTANCE = 5000;
     static final int EYE_HEIGHT = RenderUtils.SCREEN_HEIGHT * 6/10;
     static final char SKY_PIXEL = '░';

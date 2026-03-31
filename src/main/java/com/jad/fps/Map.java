@@ -1,6 +1,7 @@
 package com.jad.fps;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -34,5 +35,9 @@ public class Map {
 
     public int get(int x, int y) {
         return this.maze[y][x];
+    }
+
+    public boolean isEmpty(Point point) {
+        return this.maze[point.y][point.x] == 0 ;
     }
 }
